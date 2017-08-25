@@ -1,6 +1,7 @@
 package ewan.study.web.controller;
 
 import ewan.study.service.event.Visitor;
+import ewan.study.service.proxy.DynamicProxyDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -56,5 +57,25 @@ public class HelloController {
 
 		visitor.setName("ZHANGSAN");
 		visitor.knockAtDoor();
+	}
+
+	@Autowired
+	private DynamicProxyDemo.UserDao userDaoProxyByJdk;
+
+	@RequestMapping(value = "/JDP", method = RequestMethod.GET)
+	@ResponseBody
+	public void javaDynamicProxy() throws InterruptedException {
+
+		userDaoProxyByJdk.add();
+	}
+
+	@Autowired
+	private DynamicProxyDemo.UserDao userDaoProxyByCglib;
+
+	@RequestMapping(value = "/CGLIB", method = RequestMethod.GET)
+	@ResponseBody
+	public void cglibDynamicProxy() throws InterruptedException {
+
+		userDaoProxyByCglib.add();
 	}
 }
