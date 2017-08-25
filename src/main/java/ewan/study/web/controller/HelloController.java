@@ -1,7 +1,7 @@
 package ewan.study.web.controller;
 
-import com.sun.corba.se.impl.encoding.CodeSetConversion;
-import ewan.study.service.LazyInitHolderSingleton;
+import ewan.study.service.event.Visitor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.swing.text.StyledEditorKit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class HelloController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 
-		model.addAttribute("message", "Spring 3 MVC Hello World");
+		model.addAttribute("message", "Spring MVC Hello World");
 		return "hello";
 
 	}
@@ -46,5 +45,16 @@ public class HelloController {
 		j = bytes.size();
 		bytes.clear();
 		return j + ";";
+	}
+
+	@Autowired
+	private Visitor visitor;
+
+	@RequestMapping(value = "/visitorComing", method = RequestMethod.GET)
+	@ResponseBody
+	public void visitorComing() throws InterruptedException {
+
+		visitor.setName("ZHANGSAN");
+		visitor.knockAtDoor();
 	}
 }

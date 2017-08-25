@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @EnableWebMvc
 @Configuration
-@ComponentScan({ "ewan.study.web" })
+@ComponentScan({ "ewan.study" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
  
 	@Override
