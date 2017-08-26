@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationEvent;
 /**
  * Created by ewan on 25/08/2017.
  */
+
+//事件
 public class KnockAtDoorEvent extends ApplicationEvent {
     private Visitor vistor;
 
