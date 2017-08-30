@@ -1,15 +1,11 @@
 package ewan.study.service.proxy;
 
-import com.sun.tracing.dtrace.ArgsAttributes;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.jws.soap.SOAPBinding;
-import javax.print.attribute.standard.RequestingUserName;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
