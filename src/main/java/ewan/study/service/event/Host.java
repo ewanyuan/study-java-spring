@@ -1,6 +1,7 @@
 package ewan.study.service.event;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
@@ -42,14 +43,14 @@ public class Host {
     }
 
 
-    /*@Component
-    public class EarsOfHost {
-        //spring4.1 以上写法
-        //将继承去掉用注解的方法，大大增加了灵活性
-        @EventListener
-        public void onApplicationEvent(KnockAtDoorEvent knockAtDoorEvent) {
-            String guestName = knockAtDoorEvent.answerName();
-            OpenTheDoor(guestName);
-        }
-    }*/
+//    @Component
+//    public class EarsOfHost {
+//        //spring4.1 以上写法
+//        //将继承去掉用注解的方法，大大增加了灵活性
+//        @EventListener
+//        public void onApplicationEvent(KnockAtDoorEvent knockAtDoorEvent) {
+//            String guestName = knockAtDoorEvent.answerName();
+//            OpenTheDoor(guestName);
+//        }
+//    }
 }

@@ -1,0 +1,2 @@
+http\://java.ewan.com/spring/schema/customScopes=ewan.study.service.customLabel.ScopeThreadNameSpaceHandler
+http\://java.ewan.com/spring/schema/persons=ewan.study.service.customLabel.CustomerNamespaceHandler
