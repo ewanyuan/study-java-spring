@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:scope="http://java.ewan.com/spring/schema/customScopes"
+       xmlns:persons="http://java.ewan.com/spring/schema/persons"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://java.ewan.com/spring/schema/persons http://java.ewan.com/spring/schema/persons.xsd
+       http://java.ewan.com/spring/schema/customScopes http://java.ewan.com/spring/schema/customScopes.xsd">
+    <persons:customer id="customer1" name="Ewan" />
+
+    <scope:thread id="thread"/>
+    <bean id="customer" class="ewan.study.service.customLabel.Customer"
+          scope="thread">
+        <property name="name" value="Ewan(ThreadScoped)" />
+    </bean>
+</beans>

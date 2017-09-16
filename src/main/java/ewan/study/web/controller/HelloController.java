@@ -1,8 +1,13 @@
 package ewan.study.web.controller;
 
 import ewan.study.service.event.Visitor;
+import ewan.study.service.placeHolder.C;
+import ewan.study.service.placeHolder.Connection;
+import ewan.study.service.placeHolder.ToLogA;
+import ewan.study.service.placeHolder.ToLogB;
 import ewan.study.service.proxy.DynamicProxyDemo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,5 +82,27 @@ public class HelloController {
 	public void cglibDynamicProxy() throws InterruptedException {
 
 		userDaoProxyByCglib.add();
+	}
+
+	@RequestMapping(value = "/password", method = RequestMethod.GET)
+	@ResponseBody
+	public String testPostDefinition() throws InterruptedException {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("placeHolder/auth.xml");
+		return context.getBean(Connection.class).getPassword();
+	}
+
+	@Autowired
+	private ToLogA toLogA;
+	@Autowired
+	private ToLogB toLogB;
+	@Autowired
+	private C c;
+
+	@RequestMapping(value = "/testPostProcessorAndProxy", method = RequestMethod.GET)
+	@ResponseBody
+	public void testPostProcessorAndProxy() throws InterruptedException {
+		toLogA.doSth();
+		toLogB.work();
+		c.did();
 	}
 }
